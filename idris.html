@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="tg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IDRIS CALENDAR</title>
+
+    <link rel="stylesheet" href="idris.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="topbar">
+
+        <!-- МЕНЮ -->
+        <button class="icon-btn" id="menuBtn">
+            ☰
+        </button>
+
+        <!-- НОМИ МОҲ -->
+        <div class="month-title" id="monthTitle">
+            СЕНТ. 2026
+        </div>
+
+        <!-- КНОПКАҲОИ БОЛО -->
+        <div class="top-actions">
+
+            <button class="icon-btn" id="searchBtn">
+                🔍
+            </button>
+
+            <button class="calendar-icon" id="todayBtn">
+                <span id="todayNumber">2</span>
+            </button>
+
+        </div>
+
+    </header>
+<!-- ================= QUICK ACTIONS ================= -->
+<button class="quick-card game" id="gameBtn">
+    <span class="quick-icon">🎮</span>
+
+    <div>
+        <strong>FREE FIRE</strong>
+        <small>Вақти бозӣ</small>
+    </div>
+</button>
+<section class="quick-actions">
+
+    <button class="quick-card workout" id="workoutBtn">
+        <span class="quick-icon">🏋️</span>
+
+        <div>
+            <strong>МАШҚ</strong>
+            <small>Вақти машқ</small>
+        </div>
+    </button>
+
+
+    <button class="quick-card work" id="workBtn">
+        <span class="quick-icon">💼</span>
+
+        <div>
+            <strong>КОР</strong>
+            <small>Вақти кор</small>
+        </div>
+    </button>
+
+
+    <button class="quick-card wake" id="wakeBtn">
+        <span class="quick-icon">⏰</span>
+
+        <div>
+            <strong>АЗ ХОБ ХЕСТАН</strong>
+            <small>Вақти бедоршавӣ</small>
+        </div>
+    </button>
+
+</section>
+
+    <!-- ================= SEARCH ================= -->
+
+    <div class="search-box" id="searchBox">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Ёддоштро ҷустуҷӯ кунед..."
+        >
+
+    </div>
+
+
+    <!-- ================= SIDE MENU ================= -->
+
+    <div class="side-menu" id="sideMenu">
+
+        <div class="menu-header">
+
+            <h2>📅 IDRIS CALENDAR</h2>
+
+            <button id="closeMenu">
+                ×
+            </button>
+
+        </div>
+
+        <button id="menuToday">
+            📌 Имрӯз
+        </button>
+
+        <button id="menuAdd">
+            ➕ Ёддошт илова кардан
+        </button>
+
+        <button id="clearEvents">
+            🗑️ Ҳамаи ёддоштҳо
+        </button>
+
+    </div>
+
+
+    <!-- ================= OVERLAY ================= -->
+
+    <div class="overlay" id="overlay"></div>
+
+
+    <!-- ================= CALENDAR ================= -->
+
+    <main class="calendar">
+
+        <!-- ТАҒЙИРИ МОҲ -->
+
+        <div class="calendar-navigation">
+
+            <button id="prevMonth">
+                ‹
+            </button>
+
+            <button id="nextMonth">
+                ›
+            </button>
+
+        </div>
+
+
+        <!-- РӮЗҲОИ ҲАФТА -->
+
+        <div class="weekdays">
+
+            <div>ПН</div>
+            <div>ВТ</div>
+            <div>СР</div>
+            <div>ЧТ</div>
+            <div>ПТ</div>
+            <div>СБ</div>
+            <div class="sunday">ВС</div>
+
+        </div>
+
+
+        <!-- РӮЗҲО -->
+
+        <div
+            class="days"
+            id="days"
+        ></div>
+
+    </main>
+
+
+    <!-- ================= INFO ================= -->
+
+    <section class="selected-info">
+
+        <div>
+
+            <span>
+                РӮЗИ ИНТИХОБШУДА
+            </span>
+
+            <h2 id="selectedDate">
+                2 СЕНТЯБР 2026
+            </h2>
+
+        </div>
+
+        <div
+            class="event-number"
+            id="eventNumber"
+        >
+            0
+        </div>
+
+    </section>
+
+
+    <!-- ================= EVENTS ================= -->
+
+    <section
+        class="events"
+        id="events"
+    ></section>
+<!-- ================= QUICK ACTION MODAL ================= -->
+
+<div class="quick-modal" id="quickModal">
+
+    <div class="quick-modal-box">
+
+        <h2 id="quickTitle">
+            🏋️ МАШҚ
+        </h2>
+
+        <p id="quickDescription">
+            Вақти машқро интихоб кунед
+        </p>
+
+        <input
+            type="time"
+            id="quickTime"
+        >
+
+        <input
+            type="text"
+            id="quickNote"
+            placeholder="Масалан: Машқи саҳарӣ"
+        >
+
+        <button
+            class="quick-save"
+            id="quickSave"
+        >
+            ✓ САБТ КАРДАН
+        </button>
+
+        <button
+            class="quick-close"
+            id="quickClose"
+        >
+            БЕКОР КАРДАН
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- ================= PLUS ================= -->
+
+    <button
+        class="floating-add"
+        id="addEventBtn"
+    >
+        +
+    </button>
+
+
+    <!-- ================= MODAL ================= -->
+
+    <div
+        class="modal"
+        id="modal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close-modal"
+                id="closeModal"
+            >
+                ×
+            </button>
+
+            <div class="modal-logo">
+                +
+            </div>
+
+            <h2>
+                Ёддошти нав
+            </h2>
+
+            <p id="modalDate">
+                2 СЕНТЯБР 2026
+            </p>
+
+            <input
+                type="text"
+                id="eventText"
+                placeholder="Номи ёддошт..."
+            >
+
+            <input
+                type="time"
+                id="eventTime"
+            >
+
+            <button
+                class="save-btn"
+                id="saveEvent"
+            >
+                ✓ САБТ КАРДАН
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="idris.js"></script>
+
+</body>
+
+</html>
